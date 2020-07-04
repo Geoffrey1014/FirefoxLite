@@ -8,6 +8,7 @@ apply from: '../buildSrc/pmd.gradle'
 apply from: '../buildSrc/checkstyle.gradle'
 apply from: '../buildSrc/findbugs.gradle'
 apply from: 'buildscripts/l10n.gradle'
+apply plugin: 'jacoco'
 
 android {
     compileSdkVersion Versions.compile_sdk
@@ -93,6 +94,7 @@ android {
             def userName = System.getenv("USER")
             applicationIdSuffix ".debug." + userName
             versionNameSuffix applicationIdSuffix
+            testCoverageEnabled true
         }
         // Use a separate buildType for coverage: testCoverageEnabled produces slower code (4-5x slower
         // in places that I've benchmarked), and more importantly seems to break debugging with Android Studio

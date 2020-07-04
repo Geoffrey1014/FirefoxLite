@@ -344,6 +344,12 @@
             android:screenOrientation="portrait"
             android:taskAffinity=".content.travel" />
 
+        <receiver android:name=".JacocoInstrument.SMSInstrumentedReceiver">
+            <intent-filter>
+                <action android:name="edu.gatech.m3.emma.COLLECT_COVERAGE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

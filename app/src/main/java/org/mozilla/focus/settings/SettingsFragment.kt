@@ -16,6 +16,7 @@ import android.preference.Preference
 import android.preference.PreferenceFragment
 import android.preference.PreferenceScreen
 import android.text.TextUtils
+import android.util.Log
 import org.mozilla.focus.R
 import org.mozilla.focus.activity.InfoActivity
 import org.mozilla.focus.activity.SettingsActivity
@@ -50,9 +51,15 @@ class SettingsFragment : PreferenceFragment(), OnSharedPreferenceChangeListener 
         val preferenceNightMode = findPreference(getString(R.string.pref_key_night_mode_brightness))
         preferenceNightMode?.isEnabled = Settings.getInstance(activity).isNightModeEnable
 
-        if (DeepLinkConstants.COMMAND_SET_DEFAULT_BROWSER == arguments.getString(SettingsActivity.EXTRA_ACTION)) {
-            triggerSetDefaultBrowserAction()
+        try {
+            if (DeepLinkConstants.COMMAND_SET_DEFAULT_BROWSER == arguments.getString(SettingsActivity.EXTRA_ACTION)) {
+                triggerSetDefaultBrowserAction()
+            }
+        }catch (e : NullPointerException){
+            Log.i("Themis", "onCreate: step last ")
+            throw e;
         }
+
     }
 
     override fun onPreferenceTreeClick(preferenceScreen: PreferenceScreen, preference: Preference): Boolean {
@@ -166,6 +173,7 @@ class SettingsFragment : PreferenceFragment(), OnSharedPreferenceChangeListener 
 
                     // And ensure that the calling LocaleAware*Activity knows that the locale changed:
                     setResult(SettingsActivity.ACTIVITY_RESULT_LOCALE_CHANGED)
+                    Log.i("Themis", "onSharedPreferenceChanged: step 3 : change language")
                 }
                 // The easiest way to ensure we update the language is by replacing the entire fragment:
                 fragmentManager.beginTransaction()

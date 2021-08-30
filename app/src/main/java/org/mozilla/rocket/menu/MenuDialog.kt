@@ -2,6 +2,7 @@ package org.mozilla.rocket.menu
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.StyleRes
@@ -106,6 +107,7 @@ class MenuDialog : BottomSheetDialog {
                         chromeViewModel.checkToDriveDefaultBrowser()
                         chromeViewModel.openPreference.call()
                         TelemetryWrapper.clickMenuSettings()
+                        Log.i("Themis", "onItemClick: step 2: click settings")
                     }
                     MenuItemAdapter.TYPE_EXIT_APP -> {
                         chromeViewModel.exitApp.call()

@@ -8,6 +8,7 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Looper
+import android.util.Log
 import android.view.GestureDetector
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -144,6 +145,7 @@ class HomeFragment : LocaleAwareFragment(), ScreenNavigator.HomeScreen {
             setOnClickListener {
                 chromeViewModel.showMenu.call()
                 TelemetryWrapper.showMenuHome()
+                Log.i("Themis", "initSearchToolBar: step 1 : click menu")
             }
             setOnLongClickListener {
                 chromeViewModel.showDownloadPanel.call()

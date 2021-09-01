@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.ValueCallback
@@ -185,7 +186,12 @@ class ContentTabHelper(private val contentTabViewContract: ContentTabViewContrac
 
         override fun onEnterFullScreen(callback: TabView.FullscreenCallback, view: View?) {
             for (goneView in contentTabViewContract.getFullScreenGoneViews()) {
-                goneView.visibility = View.GONE
+                try {
+                    goneView.visibility = View.GONE
+                }catch (e : NullPointerException){
+                    Log.i("Themis", "onEnterFullScreen: step last")
+                    throw e
+                }
             }
             for (invisibleView in contentTabViewContract.getFullScreenInvisibleViews()) {
                 invisibleView.visibility = View.INVISIBLE

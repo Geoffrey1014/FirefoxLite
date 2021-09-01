@@ -3,6 +3,7 @@ package org.mozilla.rocket.shopping.search.ui
 import android.text.Spannable
 import android.text.SpannableStringBuilder
 import android.text.TextUtils
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -77,6 +78,7 @@ class ShoppingSearchKeywordInputViewModel(
     }
 
     fun onTypedKeywordSent(keyword: String) {
+        Log.i("Themis", "onTypedKeywordSent: step 2: Keyword Sent")
         onKeywordSent(keyword)
         TelemetryWrapper.searchWithTextInSearchBar(TelemetryWrapper.Extra_Value.SHOPPING)
     }

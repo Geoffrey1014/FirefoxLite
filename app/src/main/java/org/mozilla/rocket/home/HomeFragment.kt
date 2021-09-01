@@ -7,6 +7,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.GestureDetector
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -162,7 +163,10 @@ class HomeFragment : LocaleAwareFragment(), ScreenNavigator.HomeScreen {
             shopping_button.isVisible = isEnabled
             private_mode_button.isVisible = !isEnabled
         })
-        shopping_button.setOnClickListener { homeViewModel.onShoppingButtonClicked() }
+        shopping_button.setOnClickListener {
+            homeViewModel.onShoppingButtonClicked()
+            Log.i("Themis", "initSearchToolBar: step 1: click shopping_button ")
+        }
         homeViewModel.openShoppingSearch.observe(viewLifecycleOwner, Observer {
             showShoppingSearch()
         })

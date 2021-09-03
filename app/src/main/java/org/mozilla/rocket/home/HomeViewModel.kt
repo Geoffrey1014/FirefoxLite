@@ -1,5 +1,6 @@
 package org.mozilla.rocket.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -48,6 +49,7 @@ import org.mozilla.rocket.msrp.domain.IsMsrpAvailableUseCase
 import org.mozilla.rocket.msrp.domain.LastReadMissionIdUseCase
 import org.mozilla.rocket.msrp.domain.RefreshMissionsUseCase
 import org.mozilla.rocket.util.ToastMessage
+import kotlin.math.log
 
 class HomeViewModel(
     private val settings: Settings,
@@ -231,6 +233,7 @@ class HomeViewModel(
     fun onTopSiteClicked(site: Site, position: Int) {
         when (site) {
             is Site.UrlSite -> {
+                Log.i("Themis", "onTopSiteClicked: step 1 : 点击 topsite 按钮")
                 openBrowser.value = site.url
                 val allowToLogTitle = when (site) {
                     is Site.UrlSite.FixedSite -> true

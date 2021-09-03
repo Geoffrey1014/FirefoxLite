@@ -18,6 +18,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -192,7 +193,13 @@ public class TabTrayFragment extends DialogFragment implements TabTrayContract.V
                 adapter.setShoppingSearch(showShoppingSearch, uiModel.getKeyword());
             }
         });
-        homeViewModel = new ViewModelProvider(getActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
+        try {
+            homeViewModel = new ViewModelProvider(getActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
+        }
+        catch ( RuntimeException e ){
+            Log.i("Themis", "onCreateView: step last");
+            throw e;
+        }
         backgroundView = view.findViewById(R.id.root_layout);
         logoMan = backgroundView.findViewById(R.id.logo_man);
         imgPrivateBrowsing = view.findViewById(R.id.img_private_browsing);

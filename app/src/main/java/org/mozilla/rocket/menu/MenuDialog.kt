@@ -107,7 +107,7 @@ class MenuDialog : BottomSheetDialog {
                         chromeViewModel.checkToDriveDefaultBrowser()
                         chromeViewModel.openPreference.call()
                         TelemetryWrapper.clickMenuSettings()
-                        Log.i("Themis", "onItemClick: step 2: click settings")
+                        Log.i("Themis", "Event 2: Clicked \"Settings\" in the menu.")
                     }
                     MenuItemAdapter.TYPE_EXIT_APP -> {
                         chromeViewModel.exitApp.call()

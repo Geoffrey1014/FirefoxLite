@@ -56,7 +56,7 @@ class SettingsFragment : PreferenceFragment(), OnSharedPreferenceChangeListener 
                 triggerSetDefaultBrowserAction()
             }
         }catch (e : NullPointerException){
-            Log.i("Themis", "onCreate: step last ")
+            Log.i("Themis", "Crash!: NullPointerException ")
             throw e;
         }
 
@@ -173,7 +173,7 @@ class SettingsFragment : PreferenceFragment(), OnSharedPreferenceChangeListener 
 
                     // And ensure that the calling LocaleAware*Activity knows that the locale changed:
                     setResult(SettingsActivity.ACTIVITY_RESULT_LOCALE_CHANGED)
-                    Log.i("Themis", "onSharedPreferenceChanged: step 3 : change language")
+                    Log.i("Themis", "Event 3: Changed a language.")
                 }
                 // The easiest way to ensure we update the language is by replacing the entire fragment:
                 fragmentManager.beginTransaction()

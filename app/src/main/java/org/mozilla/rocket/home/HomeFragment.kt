@@ -145,7 +145,7 @@ class HomeFragment : LocaleAwareFragment(), ScreenNavigator.HomeScreen {
             setOnClickListener {
                 chromeViewModel.showMenu.call()
                 TelemetryWrapper.showMenuHome()
-                Log.i("Themis", "initSearchToolBar: step 1 : click menu")
+                Log.i("Themis", "Event 1 : click menu on the right bottom.")
             }
             setOnLongClickListener {
                 chromeViewModel.showDownloadPanel.call()

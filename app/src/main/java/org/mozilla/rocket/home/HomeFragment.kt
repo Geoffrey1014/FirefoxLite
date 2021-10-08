@@ -165,7 +165,7 @@ class HomeFragment : LocaleAwareFragment(), ScreenNavigator.HomeScreen {
         })
         shopping_button.setOnClickListener {
             homeViewModel.onShoppingButtonClicked()
-            Log.i("Themis", "initSearchToolBar: step 1: click shopping_button ")
+            Log.i("Themis", "Event 1: Clicked shopping button on the left bottom.")
         }
         homeViewModel.openShoppingSearch.observe(viewLifecycleOwner, Observer {
             showShoppingSearch()

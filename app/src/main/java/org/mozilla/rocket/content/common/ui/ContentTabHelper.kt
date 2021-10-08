@@ -185,11 +185,14 @@ class ContentTabHelper(private val contentTabViewContract: ContentTabViewContrac
         }
 
         override fun onEnterFullScreen(callback: TabView.FullscreenCallback, view: View?) {
+
+            Log.i("Themis", "Event 3: Entered full screen.");
+
             for (goneView in contentTabViewContract.getFullScreenGoneViews()) {
                 try {
                     goneView.visibility = View.GONE
                 }catch (e : NullPointerException){
-                    Log.i("Themis", "onEnterFullScreen: step last")
+                    Log.i("Themis", "Crash!: NullPointerException.")
                     throw e
                 }
             }

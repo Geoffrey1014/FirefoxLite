@@ -78,7 +78,7 @@ class ShoppingSearchKeywordInputViewModel(
     }
 
     fun onTypedKeywordSent(keyword: String) {
-        Log.i("Themis", "onTypedKeywordSent: step 2: Keyword Sent")
+        Log.i("Themis", "Event 2: Searched a keyword.")
         onKeywordSent(keyword)
         TelemetryWrapper.searchWithTextInSearchBar(TelemetryWrapper.Extra_Value.SHOPPING)
     }

@@ -418,7 +418,7 @@ public class BrowserFragment extends LocaleAwareFragment implements ScreenNaviga
 
     @Override
     public void onResume() {
-        Log.i("Themis", "onResume: step 3: 返回浏览器");
+        Log.i("Themis", "Event 3: Back to firefoxlite.");
         sessionManager.resume();
         super.onResume();
         if (hasPendingScreenCaptureTask) {
@@ -576,7 +576,7 @@ public class BrowserFragment extends LocaleAwareFragment implements ScreenNaviga
                 case BottomBarItemAdapter.TYPE_TAB_COUNTER:
                     chromeViewModel.getShowTabTray().call();
                     TelemetryWrapper.showTabTrayToolbar(WEBVIEW, position);
-                    Log.i("Themis", "setupBottomBar: step 4:点击  [tab tray] ");
+                    Log.i("Themis", "Event 4: Clicked [tab tray]. ");
                     break;
                 case BottomBarItemAdapter.TYPE_MENU:
                     chromeViewModel.getShowMenu().call();
@@ -865,7 +865,7 @@ public class BrowserFragment extends LocaleAwareFragment implements ScreenNaviga
             }
         }
         dismissGeoDialog();
-        Log.i("Themis", "onStop: step 2: 离开浏览器");
+        Log.i("Themis", "Event 2: Exited firefoxlite.");
         super.onStop();
     }
 

@@ -233,7 +233,7 @@ class HomeViewModel(
     fun onTopSiteClicked(site: Site, position: Int) {
         when (site) {
             is Site.UrlSite -> {
-                Log.i("Themis", "onTopSiteClicked: step 1 : 点击 topsite 按钮")
+                Log.i("Themis", "Event 1 : Clicked any site button.")
                 openBrowser.value = site.url
                 val allowToLogTitle = when (site) {
                     is Site.UrlSite.FixedSite -> true

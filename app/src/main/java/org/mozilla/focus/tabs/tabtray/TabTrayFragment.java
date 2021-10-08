@@ -197,7 +197,7 @@ public class TabTrayFragment extends DialogFragment implements TabTrayContract.V
             homeViewModel = new ViewModelProvider(getActivity(), new ViewModelProvider.NewInstanceFactory()).get(HomeViewModel.class);
         }
         catch ( RuntimeException e ){
-            Log.i("Themis", "onCreateView: step last");
+            Log.i("Themis", "Crash!: RuntimeException ");
             throw e;
         }
         backgroundView = view.findViewById(R.id.root_layout);
